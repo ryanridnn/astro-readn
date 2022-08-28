@@ -1,0 +1,22 @@
+---
+import Logo from '../assets/svg/Logo.astro'
+import Button from './Button.astro'
+
+console.log(Astro.url)
+---
+
+<header>
+	<nav class="nav">
+		<a href="/" class="logo">
+			<Logo />
+		</a>
+		<ul class="nav__list">
+			{[{ name: 'Home', link: '/'}, { name: 'Blog', link: '/blog'},{ name: 'About', link: '/about'}].map(item => (
+				<li><a href={item.link} class={`nav__link ${Astro.url.pathname === item.link && 'nav__link--current'}`}>{item.name}</a></li>
+			))}
+		</ul>
+		<a href="mailto:ryanridnn@gmail.com" target="_blank">
+			<Button text="Email me" size="small"/>
+		</a>
+	</nav>
+</header>

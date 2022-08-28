@@ -1,0 +1,39 @@
+
+
+<style lang="scss">
+	.border-button{
+		background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='6' ry='6' stroke='%23256D85FF' stroke-width='2' stroke-dasharray='6' stroke-dashoffset='-1' stroke-linecap='round'/%3e%3c/svg%3e");
+		border-radius: 6px;
+		background-color: #f7f7f7;
+		border-radius: 6px;
+		color: var(--color-dark-green-3);
+		font-family: var(--font-heading);
+		border-radius: .375rem;
+		font-size: 1rem;
+		padding: .75rem 1.125rem;
+		position: relative;
+		border: none;
+		cursor: pointer;
+		transition: background .2s ease;
+
+		&__decorator{
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(37.5%, -37.5%);
+			height: .5rem;
+			width: .5rem;
+			border-radius: 100%;
+			background: var(--color-dark-green-3);
+		}
+
+		&:hover{
+			background-color: #EEEEEE;
+		}
+	}
+</style>
+
+<button class="border-button">
+	<span class="border-button__decorator"></span>
+	{ Astro.props.text }
+</button>

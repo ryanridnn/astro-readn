@@ -1,0 +1,93 @@
+.cards {
+	&__container {
+		max-width: 440px;
+		width: 100%;
+	}
+
+	&__navigation {
+		margin: 2rem 0 3rem;
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	&__arrow .arrow {
+		fill: #8fbece;
+		transition: 0.15s ease;
+	}
+
+	&__arrow--active .arrow {
+		fill: var(--color-dark-green-3);
+	}
+
+	&__arrow .line {
+		width: 2.75rem;
+		height: 0.3rem;
+		border-radius: 0.1rem;
+		background: #8fbece;
+		transition: 0.15s ease;
+	}
+
+	&__arrow--active .line {
+		width: 4rem;
+		background: var(--color-dark-green-3);
+	}
+
+	&__left-arrow .line {
+		transform: translate(-9px, -1.5px);
+	}
+
+	&__right-arrow .arrow {
+		transform: rotate(180deg) translate(0, 3px);
+	}
+
+	&__right-arrow .line {
+		transform: translate(9px, -1px);
+	}
+
+	.card {
+		padding: 1.5rem;
+		background: white;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+
+		&__image {
+			max-width: 100%;
+			border-radius: 1rem;
+		}
+
+		&__body {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 0.5rem;
+		}
+
+		&__title {
+			font-size: 1.125rem;
+			line-height: 1.5;
+			font-weight: 400;
+		}
+
+		&__details {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+
+		&__bullet {
+			width: 0.375rem;
+			height: 0.375rem;
+			border-radius: 100%;
+			background: var(--color-text-light-2);
+			margin-left: 0.25rem;
+		}
+	}
+}

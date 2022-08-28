@@ -1,0 +1,171 @@
+---
+import Button from '../Button.astro'
+import BorderButton from '../BorderButton.astro';
+import CardSwiper, { Blog } from './CardSwiper';
+
+import Circle from '../../assets/svg/Circle.astro';
+import Star from '../../assets/svg/Star.astro';
+import CircleLine from '../../assets/svg/CircleLine.astro';
+
+const blogs: Blog[] = Astro.props.posts.map((blog) => ({
+	title: blog.frontmatter.title,
+	thumb: blog.frontmatter.thumb,
+	slug: blog.frontmatter.slug,
+	topic: blog.frontmatter.topic,
+	readingTime: blog.frontmatter.readingTime,
+}))
+---
+
+<style lang="scss">
+	.hero{
+		display:  flex;
+
+		&__headline{
+			flex:  1;
+			height: calc(100vh - 4rem);
+			display: flex;
+			align-items: center;
+			padding-bottom: 5rem;
+		}
+
+		&__headline-content{
+			position: relative;
+		}
+
+		&__blogs{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__name{
+			font-size: 1.125rem;
+			margin-bottom: .5rem;
+		}
+
+		&__heading{
+			font-size: 3.125rem;
+			font-family: var(--font-heading);
+			margin-bottom: .75rem;
+		}
+
+		&__lead{
+			font-weight: lighter;
+		}
+
+		&__buttons{
+			margin-top: 2rem;
+			display: flex;
+			gap: .75rem;
+		}
+
+		&__blogs-content{
+			position: relative;
+		}
+
+		.circle-1{
+			position: absolute;
+			top: -15%;
+			left: 20%;
+		}
+
+		.circle-2{
+			position: absolute;
+			bottom: 10%;
+			left: 60%;
+		}
+
+		.circle-3{
+			position: absolute;
+			bottom: -5rem;
+			right: 2rem;
+		}
+
+		.star-1{
+			position: absolute;
+			left: 70%;
+			top: -10%;
+		}
+
+		.circleline-1{
+			position: absolute;
+			bottom: 4rem;
+			right: -1rem;
+		}
+
+		.star-2{
+			position: absolute;
+			top: -1.5rem;
+			left: -3rem;
+		}
+	}
+
+	.text-bg{
+		position: relative;
+		z-index: 2;
+	}
+
+	.text-bg::before{
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -45%);
+		width: 110%;
+		height: 100%;
+		background: var(--color-green-1);
+		border-radius: .5rem;
+		z-index: -1;
+	}
+</style>
+
+<section class="hero">
+	<div class="hero__headline">
+		<div class="hero__headline-content">
+			<div class="circle-1">
+				<Circle size="24px" color="gradient-green"/>
+			</div>
+			<div class="circle-2">
+				<Circle size="32px" color="gradient-green"/>
+			</div>
+			<div class="circle-3">
+				<Circle size="12px" color="gradient-dark-green" />
+			</div>
+			<div class="star-1">
+				<Star size="32px" color="gradient-green"/>
+			</div>
+			<div class="hero__name">
+				Welcome to readn blog
+			</div>
+			<h1 class="hero__heading">
+				<div>
+					Read what's in my 
+				</div>
+				<div>mind, <span class="text-bg">request</span> a topic</div>
+				<div>and collab with me</div>
+			</h1>
+			<p class="hero__lead"><span>Read or listen to my little opinions what is/was/will going</span> <span>on in the world. Let’s share our thoughts and memory to</span> grow a better us! </p>
+			<div class="hero__buttons">
+				<a href="/blog">
+					<Button text="Show Blog"/>
+				</a>
+				<BorderButton text="Let's Collab"/>
+			</div>
+		</div>
+		
+	</div>
+	<div class="hero__blogs">
+		<div class="hero__blogs-content">
+			<CardSwiper client:load blogs={blogs} />
+			<div class="circleline-1">
+				<CircleLine size="68px" color="green" />
+			</div>
+			<div class="star-2">
+				<Star size="40px" color="gradient-dark-green" />
+			</div>
+		</div>
+		
+	</div>
+</section>

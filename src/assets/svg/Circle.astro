@@ -1,0 +1,21 @@
+<style lang="scss" define:vars={{ size: Astro.props.size }}>
+	.circle{
+		width:  var(--size);
+		height:  var(--size);
+		border-radius:  100%;
+		background: var(--bgcolor);
+
+		&--gradient-green{
+			background: linear-gradient(to bottom, var(--color-green-1),  rgba(#a7f0df, .25))
+		}
+
+		&--gradient-dark-green{
+			background: linear-gradient(to bottom, var(--color-dark-green-3),  rgba(#256d85, .25))
+		}
+
+	}
+</style>
+
+<div class={`circle circle--${Astro.props.color}`}>
+	
+</div>

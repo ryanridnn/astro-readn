@@ -1,0 +1,55 @@
+---
+import Card from '../Card.astro'
+import CircleLine from '../../assets/svg/CircleLine.astro'
+import Star from '../../assets/svg/Star.astro'
+---
+
+<style lang="scss">
+	.header{
+		padding:  5rem 0;
+		display: flex;
+		flex-direction: column;
+		gap:  1rem;
+		text-align: center;
+		position: relative;
+
+		&__heading{
+			position: relative;
+			font-size: 3rem;
+			font-weight: 600;
+			align-self: center;
+
+			.circleline-1{
+				position: absolute;
+				top: -1.5rem;
+				left: -2rem;
+				z-index: -1;
+			}
+
+			
+		}
+
+		.star-1{
+			position: absolute;
+			top: 60%;
+			left: 10%;
+		}
+	}
+</style>
+
+<section class="header">
+	<div class="star-1">
+		<Star size="30px" color="gradient-dark-green" />
+	</div>
+	<h1 class="header__heading">
+		<div>Science, Tech, History, etc</div>
+		<div>on my perspective</div>
+		<div class="circleline-1">
+			<CircleLine size="67px" color="green" />
+		</div>
+	</h1>
+	<p class="header__lead">
+		<span>Read what interest me that might interest you too! </span>
+		<span>Save my blog to read it later</span>
+	</p>
+</section>

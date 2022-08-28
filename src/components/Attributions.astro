@@ -1,0 +1,31 @@
+<style lang="scss">
+	.attributions{
+		display: flex;
+		gap:  2rem;
+		padding: .5rem 0 2rem;
+
+		&__right{
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		&__item{
+			text-decoration: underline;
+		}
+	}
+</style>
+
+<div class="attributions">
+	<div class="attributions__left">
+		Attributions
+	</div>
+	<div class="attributions__right">
+		{ Astro.props.attributions.map(attribution => (
+			<a href={attribution.link}
+			target="_blank" class="attributions__item">
+				{attribution.text}
+			</a>
+		))}
+	</div>
+</div>

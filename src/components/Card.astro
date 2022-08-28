@@ -1,0 +1,67 @@
+---
+import UserIcon from '../assets/svg/User.astro'
+const { frontmatter } = Astro.props.blog
+---
+
+<style lang="scss">
+	.card{
+		padding: 1.5rem;
+		background: white;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: .75rem;
+
+		&__image{
+			max-width:  100%;
+			border-radius: 1rem;
+		}
+
+		&__body{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: .5rem;
+		}
+
+		&__title{
+			font-size: 1.125rem;
+			line-height: 1.5;
+			font-weight: 400;
+		}
+
+		&__details{
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+		}
+
+		&__bullet{
+			width: .375rem;
+			height: .375rem;
+			border-radius: 100%;
+			background: var(--color-text-light-2);
+			margin-left: .25rem;
+		}
+	}
+</style>
+
+<a href={`/blog/${frontmatter.slug}`}>
+	<div class="card">
+		<img class="card__image" src={frontmatter.thumb}/ alt="blog thumbnail">
+		<div class="card__body">
+			<h3 class="card__title">{frontmatter.title}</h3>
+			<div class="card__details">
+				<div class="card__topic">
+					{ frontmatter.topic }
+				</div>
+				<div class="card__bullet">
+					
+				</div>
+				<div class="card__reading-time">
+					{ frontmatter.readingTime}
+				</div>
+			</div>
+		</div>
+	</div>
+</a>

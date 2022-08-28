@@ -1,0 +1,149 @@
+---
+import { Image } from '@astrojs/image/components'
+import Arrow from '../../assets/svg/Arrow.astro';
+import CircleLine from '../../assets/svg/CircleLine.astro'
+import ProfileImage from '../../assets/png/profile.png'
+import Star from '../../assets/svg/Star.astro'
+---
+
+<style lang="scss">
+	.main{
+		height:  calc(100vh - 4rem);
+		display: flex;
+		justify-content: center;
+		align-items:  center;
+
+		&__header{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+		}
+
+		&__stars{
+			position: absolute;
+			right: -4rem;
+			top: 55%;
+
+			.star-1,
+			.star-2{
+				position: absolute;	
+			}
+
+			.star-1{
+				transform: translate(3.25rem, -.25rem);
+			}
+		}
+
+		&__profile-photo{
+			position: absolute;
+			top: -5rem;
+			left: -13rem;
+			z-index: -1;
+		}
+
+		&__heading{
+			font-size: 3.5rem;
+			font-weight: 400;
+			margin-bottom: .75rem;
+			position: relative;
+			align-self: center;
+
+			.circleline-1{
+				position: absolute;
+				top: -2.5rem;
+				right: -3rem;
+				z-index: -1;
+			}
+		}
+
+		&__lead{
+			margin-bottom: 1.75rem;
+		}
+
+		&__links{
+			display: flex;
+			gap: 1rem;
+		}
+
+		&__link{
+			display: flex;
+			align-items: center;
+			gap: .25rem;
+		}
+
+		&__link-text{
+			text-decoration: underline;
+		}
+
+		&__body{
+			margin-top: 4rem;
+			margin-bottom: 2rem;
+			max-width: 45rem;
+
+			.description{
+				&__heading{
+					margin-bottom: 1rem;
+					position: relative;
+					font-weight: 400;
+				}
+
+				&__text:not(:last-child) {
+					margin-bottom: .875rem;
+				}	
+			}
+		}
+	}
+</style>
+
+<section class="main">
+	<div class="main__content">
+		<div class="main__header">
+			<div class="main__profile-photo">
+				<Image src={ProfileImage} alt="Photo of me" />
+			</div>
+			<div class="main__stars">
+				<div class="star-1">
+					<Star size="27px" color="gradient-dark-green" />
+				</div>
+				<div class="star-2">
+					<Star size="73px" color="gradient-green" />
+				</div>
+			</div>
+			<h1 class="main__heading">
+				Hi, I'm Ryan Ridwan
+				<div class="circleline-1">
+					<CircleLine size="64px" color="dark-green" />
+				</div>
+			</h1>
+			<p class="main__lead">
+				Front-end developer (Next.js | React.js | Vue.js | Tailwind Css)
+			</p>
+			<div class="main__links">
+				<a href="https://www.upwork.com/freelancers/~01c7382adbf3a8dec8" target="_blank" class="main__link">
+					<span class="main__link-text">
+						Upwork
+					</span>	
+					<Arrow />
+				</a>
+				<a href="mailto:ryanridnn@gmail.com" target="_blank" class="main__link">
+					<span class="main__link-text">
+						Email
+					</span>	
+					<Arrow />
+				</a>
+			</div>
+		</div>
+		<div class="main__body description">
+			<h3 class="description__heading">
+				Hello enthusiasts,
+			</h3>
+			<p class="description__text">
+				I’m Ryan Ridwan, a front-end developer who have a great learning spirit. I have just jumped to this field. Hell yeah! I’m amazed by how much this field is so fun, and making me so curious to learn more.
+			</p>
+			<p class="description__text">
+				Here’s in my blog, I just want to keep track of my idea and opinion writed in an interesting format. It’s not about front-end development only, but everything that amaze me in this world. From science, society, and world history. Wanna share your thoughts with me, email me!
+			</p>
+		</div>
+	</div>
+</section>

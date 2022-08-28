@@ -1,0 +1,174 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Star from '../../assets/svg/Star.astro';
+import Arrow from '../../assets/svg/Arrow.astro';
+import CircleLine from '../../assets/svg/CircleLine.astro';
+import ProfileImage from '../../assets/png/profile-image.png'
+---
+
+<style lang="scss">
+	.about{
+		display: flex;
+		gap: 3rem;
+		padding: 2rem 0 6rem;
+
+		&__profile{
+			flex: 2;
+		}
+
+		&__description{
+			flex: 3;	
+			position: relative;
+
+			.star-1{
+				position: absolute;
+				top: -2rem;
+				left: 60%;
+			}
+		}
+
+		&__heading{
+			font-size: 2.5rem;
+			margin-bottom: 1.75rem;
+
+			.line-two{
+				position: relative;
+			}
+
+			.star-1{
+				position: absolute;
+				bottom: -1.5rem;
+				right: -1.75rem;
+				transform: translate(20%, -60%);
+			}
+		}
+
+		.bio{
+			background: var(--color-green-1);
+			padding: 1.25rem 1.5rem 1.75rem;
+			border-radius: 1rem;
+			display: flex;
+			gap:1rem;
+			max-width: 25rem;
+			position: relative;
+			overflow: hidden;
+
+			.circle-dec{
+				width: 7rem;
+				height: 7rem;
+				background: var(--color-green-2);
+				border-radius: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				transform: translate(50%, -50%)
+			}
+
+			&__name{
+				margin: .5rem 0 .375rem;
+				font-family: var(--font-heading);
+				font-size: 1.25rem;
+			}
+
+			&__description{
+				color: var(--color-text-light-2);
+			}
+
+			&__links{
+				display: flex;
+				gap: .5rem;
+				margin-top: .75rem;
+				font-size: .875rem;
+			}
+
+			&__link{
+				display: flex;
+				gap: .25rem;
+				align-items: center;
+			}
+
+			&__link-text{
+				text-decoration: underline;
+			}
+		}
+
+		&__description-content{
+			padding-top: 2rem;
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		.description{
+
+			&__heading{
+				margin-bottom: 1rem;
+				position: relative;
+
+				.circleline-1{
+					position: absolute;
+					top: -100%;
+					transform: translateX(-40%);
+					z-index: -1;
+				}
+			}
+
+			&__text:not(:last-child) {
+				margin-bottom: .875rem;
+			}
+		}
+	}
+</style>
+
+<section class="about">
+	<div class="about__profile">
+		<h2 class="heading about__heading">
+			<span>Whose words are you</span>
+			<span class="line-two">reading from?
+				<span class="star-1">
+					<Star size="24px" color="gradient-dark-green" />
+				</span>
+			</span>
+		</h2>
+		<div class="about__card bio">
+			<div class="circle-dec"></div>
+			<div class="bio__photo">
+				<Image src={ProfileImage} alt="My profile image"/>
+			</div>
+			<div class="bio__profile">
+				<div class="bio__name">Ryan Ridwan</div>
+				<div class="bio__desc">Front-end developer</div>
+				<div class="bio__links">
+					<a href="https://www.upwork.com/freelancers/~01c7382adbf3a8dec8"
+					target="_blank" class="bio__link">
+						<span class="bio__link-text">Upwork</span>
+						<Arrow />
+					</a>
+					<a href="mailto:ryanridnn@gmail.com" target="_blank" class="bio__link">
+						<span class="bio__link-text">Email</span>
+						<Arrow />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="about__description description">
+		<div class="star-1">
+			<Star size="40px" color="gradient-dark-green" />
+		</div>
+		<div class="about__description-content">
+			<div class="description__heading">
+				<div class="circleline-1">
+					<CircleLine size="67px" color="green"/>
+				</div>
+				<h3>Hello enthusiasts,</h3>
+			</div>
+			<p class="description__text">
+				I’m Ryan Ridwan, a front-end developer who have a great learning spirit. I have just jumped to this field. Hell yeah! I’m amazed by how much this field is so fun, and making me so curious to learn more.
+			</p>
+			<p class="description__text">
+				Here’s in my blog, I just want to keep track of my idea and opinion writed in an interesting format. It’s not about front-end development only, but everything that amaze me in this world. From science, society, and world history. Wanna share your thoughts with me, email me!
+			</p>
+		</div>
+	</div>
+</section>

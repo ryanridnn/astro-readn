@@ -1,0 +1,35 @@
+<style lang="scss">
+	.button{
+		background: var(--color-dark-green-3);
+		color: #FDFDFD;
+		font-family: var(--font-heading);
+		border-radius: .375rem;
+		font-size: 1rem;
+		padding: .75rem 1.125rem;
+		border: none;
+		cursor: pointer;
+		transition: background .2s ease;
+
+		&:hover{
+			background: var(--color-dark-green-2)
+		}
+
+		&--light{
+			background: var(--color-green-1);
+			color: var(--color-dark-green-2);
+		}
+
+		&--light:hover{
+			background: var(--color-green-2);
+		}
+
+		&--small{
+			padding: .5rem .75rem;
+			font-size: .875rem;
+		}
+	}
+</style>
+
+<button class={`button ${Astro.props.color  === 'light' && 'button--light'} ${Astro.props.size === 'small' && 'button--small'}`}>
+	{ Astro.props.text }
+</button>

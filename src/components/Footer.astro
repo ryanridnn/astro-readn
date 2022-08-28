@@ -1,0 +1,18 @@
+---
+import Logo from '../assets/svg/Logo.astro'
+
+---
+
+<footer>
+	<div class="nav">
+		<a href="/">
+			<Logo />
+		</a>
+
+		<ul class="nav__list">
+			{[{ name: 'Home', link: '/'}, { name: 'Blog', link: '/blog'},{ name: 'About', link: '/about'}].map(item => (
+				<li><a href={item.link} class="nav__link">{item.name}</a></li>
+			))}
+		</ul>
+	</div>
+</footer>

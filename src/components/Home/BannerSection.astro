@@ -1,0 +1,73 @@
+---
+import Button from '../Button.astro'
+import BannerCircle from '../../assets/svg/BannerCircle.astro'
+import BannerGrid from '../../assets/svg/BannerGrid.astro'
+---
+
+<style lang="scss">
+	.banner{
+		padding:  4rem 0 2rem;
+
+		&__rect{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: .75rem;
+			text-align: center;
+			padding: 5rem 0;
+			background: var(--color-dark-green-2);
+			border-radius: 2rem;
+			position: relative;
+			overflow: hidden;
+		}
+
+		&__heading{
+			font-size: 2.5rem;
+			color: #f7f7f7;
+			z-index: 2;
+		}
+
+		&__lead{
+			margin-bottom: .5rem;
+			color: #D3E5F7;
+			z-index: 2;
+		}
+
+		.banner-circle{
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(50%, -50%);
+		}
+
+		.banner-grid{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+</style>
+
+<section class="banner">
+	<div class="banner__rect">
+		<div class="banner-circle">
+			<BannerCircle />
+		</div>
+		<div class="banner-grid">
+			<BannerGrid />
+		</div>
+		<h2 class="banner__heading">
+			<div>Reach me out and share your</div>
+			<div>stories and ideas!</div>
+		</h2>
+		<p class="banner__lead">
+			<span>
+				Email me at ryanridnn@gmail.com, let's make a deal on
+			</span>
+			<span>collaboration or to just send a comments!</span>
+		</p>
+		<a href="mailto:ryanridnn@gmail.com" target="_blank">
+			<Button text="Email Me" color="light" />
+		</a>
+	</div>
+</section>

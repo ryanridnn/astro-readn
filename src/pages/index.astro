@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import HeroSection from '../components/Home/HeroSection.astro';
+import AboutSection from '../components/Home/AboutSection.astro';
+import BlogSection from '../components/Home/BlogSection.astro';
+import FaqSection from '../components/Home/FaqSection.astro';
+import BannerSection from '../components/Home/BannerSection.astro';
+
+const posts = await Astro.glob('../blog/*.mdx')
+
+type Attribution = {
+	text: string;
+	link: string
+}
+
+const attributions: Attribution[] = [
+	{
+		text: 'Image by wayhomestudio on Freepik',
+		link: 'https://www.freepik.com/free-photo/close-up-young-handsome-man-isolated_13058588.htm?query=person'
+	}
+]
+
+const meta = {
+	title: 'Home - Readn'
+}
+---
+
+<DefaultLayout meta={meta} attributions={attributions}>
+	<HeroSection posts={posts}/>
+	<AboutSection />
+	<BlogSection posts={posts}/>
+	<FaqSection />
+	<BannerSection />
+</DefaultLayout>
+

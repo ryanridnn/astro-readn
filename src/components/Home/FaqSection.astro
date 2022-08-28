@@ -1,0 +1,68 @@
+---
+import { Image } from '@astrojs/image/components'
+import FaqImage from '../../assets/png/faq-img.png'
+import AccordionList from '../AccordionList';
+ import Circle from '../../assets/svg/Circle.astro';
+---
+
+<style lang="scss">
+	.faq{
+		display: flex;
+		padding:  2rem 0;
+		gap: 4rem;
+
+		&__right{
+			display: flex;
+			align-items: center;
+			padding-top: 4rem;
+		}
+
+		&__heading{
+			font-size: 2.5rem;
+			position: relative;
+
+			.circle-1{
+				position: absolute;
+				top: -2rem;
+				left: 80%;
+			}
+		}
+
+		&__lead{
+			margin-top: .75rem;
+		}
+
+		&__accordion{
+			margin-top: 1.25rem;
+
+			.accordion{
+				background: blue;
+			}
+		}
+	}
+</style>
+
+<section class="faq">
+	<div class="faq__left">
+		<Image src={FaqImage} alt="Faq illustration"/>
+	</div>
+	<div class="faq__right">
+		<div class="faq__right-content">
+			<div class="faq__header">
+					<h2 class="faq__heading">
+						Frequently asked questions
+						<div class="circle-1">
+							<Circle size="34px" color="gradient-green" />
+						</div>
+					</h2>
+					<p class="faq__lead">
+						<span>Know more about my blog and me. Here are few common </span>
+						<span>questions with answers that might help you </span>
+					</p>
+			</div>
+			<div class="faq__accordion">
+				<AccordionList client:visible/>
+			</div>
+		</div>
+	</div>
+</section>

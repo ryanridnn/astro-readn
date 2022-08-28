@@ -1,0 +1,15 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import HeaderSection from '../../components/Blog/HeaderSection.astro'
+import BlogSection from '../../components/Blog/BlogSection.astro'
+
+const meta = {
+	title: 'Blog - Readn',
+	description: 'List of my blogs with the topics of Science, Programming, History, etc'
+}
+---
+
+<DefaultLayout meta={meta}>
+	<HeaderSection />
+	<BlogSection />
+</DefaultLayout>

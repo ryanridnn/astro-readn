@@ -1,0 +1,73 @@
+---
+import Circle from "../../assets/svg/Circle.astro";
+import Star from "../../assets/svg/Star.astro";
+import Card from '../Card.astro'
+
+const posts = Astro.props.posts.sort((a, b) => new Date(b.frontmatter.publishedAt) - new Date(a.frontmatter.publishedAt))
+---
+
+<style lang="scss">
+	.blog{
+		padding: 4rem 0;
+
+		&__header{
+			display: flex;
+			flex-direction: column;
+			gap: .75rem;
+			text-align: center;
+			position: relative;
+		}
+
+		&__heading{
+			font-size: 2.5rem;
+			position: relative;
+			align-self: center;	
+		}
+
+		&__list{
+			margin-top: 3.5rem;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+
+		.circle-1{
+			position: absolute;
+			top: -.5rem;
+			left: 58%;
+			z-index: -1;
+		}
+
+		.star-1{
+			position: absolute;
+			bottom: 0;
+			left: -6rem;	
+			top: 1.5rem;
+		}
+	}
+</style>
+
+<section class="blog">
+	<div class="blog__header">
+		<h2 class="blog__heading">
+			A list of my newest blog
+			<div class="circle-1">
+				<Circle size="34px" color="gradient-green" />
+			</div>
+			<div class="star-1">
+				<Star size="46px" color="gradient-green" />
+			</div>
+		</h2>
+		<p class="blog__lead">
+			<span>Here's my thought about science, tech, history, </span>
+			<span>
+				and other interesting topics
+			</span>
+		</p>
+	</div>
+	<div class="blog__list">
+		{ posts.map(blog => (
+			<Card blog={blog} />
+		))}
+	</div>
+</section>
