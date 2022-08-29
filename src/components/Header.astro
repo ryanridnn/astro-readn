@@ -1,22 +1,61 @@
 ---
 import Logo from '../assets/svg/Logo.astro'
 import Button from './Button.astro'
+import MobileNav from './MobileNav'
 
-console.log(Astro.url)
+const path = '/' + Astro.url.pathname.split('/')[1]
 ---
 
-<header>
+<style lang="scss">
+	.paddingOnSmall{
+		padding:  0 1.5rem;
+
+		@media screen and (min-width: 640px) {
+			padding:  0;
+		}
+	}
+
+	.nav__list{
+		display: none !important;
+
+		@media screen and (min-width: 640px) {
+			display: flex !important;
+		}
+	}
+
+	.nav__email{
+		display: none;
+
+		@media screen and (min-width: 640px) {
+			display: block;
+		}
+	}
+
+	.nav__mobile{
+		display: block;
+
+		@media screen and (min-width: 640px) {
+			display: none;
+		}
+	}
+</style>
+
+<header class={Astro.props.paddingOnSmall && 'paddingOnSmall'}>
 	<nav class="nav">
 		<a href="/" class="logo">
 			<Logo />
 		</a>
 		<ul class="nav__list">
 			{[{ name: 'Home', link: '/'}, { name: 'Blog', link: '/blog'},{ name: 'About', link: '/about'}].map(item => (
-				<li><a href={item.link} class={`nav__link ${Astro.url.pathname === item.link && 'nav__link--current'}`}>{item.name}</a></li>
+				<li><a href={item.link} class={`nav__link ${path === item.link && 'nav__link--current'}`}>{item.name}</a></li>
 			))}
 		</ul>
-		<a href="mailto:ryanridnn@gmail.com" target="_blank">
+		<a href="mailto:ryanridnn@gmail.com" 
+		class="nav__email" target="_blank">
 			<Button text="Email me" size="small"/>
 		</a>
+		<div class="nav__mobile">
+			<MobileNav client:load path={path}/>
+		</div>
 	</nav>
 </header>

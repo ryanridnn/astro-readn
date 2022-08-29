@@ -3,8 +3,6 @@ import { v4 as uuidv4 } from 'uuid'
 let color: string;
 const propsColor: string = Astro.props.color
 
-console.log(propsColor)
-
 if(propsColor === 'gradient-green') {
 	color = '#A7F0DF'
 } else if(propsColor === 'gradient-dark-green') {

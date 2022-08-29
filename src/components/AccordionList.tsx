@@ -38,6 +38,7 @@ export default function AccordionList() {
 		<div className="accordion">
 			{faqs.map((faq, index) => (
 				<div
+					key={index}
 					className={`accordion__item ${
 						selected === index ? "accordion__item--selected" : ""
 					}`}

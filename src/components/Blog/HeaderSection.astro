@@ -1,23 +1,38 @@
 ---
-import Card from '../Card.astro'
 import CircleLine from '../../assets/svg/CircleLine.astro'
 import Star from '../../assets/svg/Star.astro'
 ---
 
 <style lang="scss">
 	.header{
-		padding:  5rem 0;
+		padding:  3rem 0;
 		display: flex;
 		flex-direction: column;
 		gap:  1rem;
 		text-align: center;
 		position: relative;
 
+		@media screen and (min-width: 768px) {
+			padding: 5rem 0;
+		}
+
 		&__heading{
 			position: relative;
-			font-size: 3rem;
+			font-size: 2.25rem;
 			font-weight: 600;
 			align-self: center;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
+
+			@media screen and (min-width: 768px) {
+				font-size: 3rem;
+			}
 
 			.circleline-1{
 				position: absolute;
@@ -25,31 +40,45 @@ import Star from '../../assets/svg/Star.astro'
 				left: -2rem;
 				z-index: -1;
 			}
+		}
 
-			
+		&__lead{
+			padding: 0 2rem;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 480px) {
+					display: block;
+				}
+			}	
+
+			@media screen and (min-width: 480px) {
+					padding: 0;
+				}
 		}
 
 		.star-1{
 			position: absolute;
 			top: 60%;
-			left: 10%;
+			left: 0%;
 		}
 	}
-</style>
+</style>	
 
 <section class="header">
 	<div class="star-1">
 		<Star size="30px" color="gradient-dark-green" />
 	</div>
 	<h1 class="header__heading">
-		<div>Science, Tech, History, etc</div>
-		<div>on my perspective</div>
+		<div class="line">Science, Tech, History, etc </div>
+		<div class="line">on my perspective</div>
 		<div class="circleline-1">
 			<CircleLine size="67px" color="green" />
 		</div>
 	</h1>
 	<p class="header__lead">
-		<span>Read what interest me that might interest you too! </span>
-		<span>Save my blog to read it later</span>
+		<span class="line">Read what interest me that might interest you too! </span>
+		<span class="line">Save my blog to read it later</span>
 	</p>
 </section>

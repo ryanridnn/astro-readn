@@ -14,7 +14,7 @@ import BannerGrid from '../../assets/svg/BannerGrid.astro'
 			align-items: center;
 			gap: .75rem;
 			text-align: center;
-			padding: 5rem 0;
+			padding: 5rem 1.5rem;
 			background: var(--color-dark-green-2);
 			border-radius: 2rem;
 			position: relative;
@@ -22,22 +22,46 @@ import BannerGrid from '../../assets/svg/BannerGrid.astro'
 		}
 
 		&__heading{
-			font-size: 2.5rem;
+			font-size: 1.75rem;
 			color: #f7f7f7;
 			z-index: 2;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
+
+			@media screen and (min-width: 768px) {
+				font-size: 2.5rem;
+			}
 		}
 
 		&__lead{
 			margin-bottom: .5rem;
 			color: #D3E5F7;
 			z-index: 2;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
 		}
 
 		.banner-circle{
 			position: absolute;
 			right: 0;
-			top: 50%;
+			top: 100%;
 			transform: translate(50%, -50%);
+
+			@media screen and (min-width: 768px) {
+				top: 50%;
+			}
 		}
 
 		.banner-grid{
@@ -57,14 +81,14 @@ import BannerGrid from '../../assets/svg/BannerGrid.astro'
 			<BannerGrid />
 		</div>
 		<h2 class="banner__heading">
-			<div>Reach me out and share your</div>
-			<div>stories and ideas!</div>
+			<div class="line">Reach me out and share your</div>
+			<div class="line">stories and ideas!</div>
 		</h2>
 		<p class="banner__lead">
-			<span>
+			<span class="line">
 				Email me at ryanridnn@gmail.com, let's make a deal on
 			</span>
-			<span>collaboration or to just send a comments!</span>
+			<span class="line">collaboration or to just send a comments!</span>
 		</p>
 		<a href="mailto:ryanridnn@gmail.com" target="_blank">
 			<Button text="Email Me" color="light" />

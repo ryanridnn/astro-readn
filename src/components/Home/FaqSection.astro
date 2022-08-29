@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components'
-import FaqImage from '../../assets/png/faq-img.png'
 import AccordionList from '../AccordionList';
  import Circle from '../../assets/svg/Circle.astro';
 ---
@@ -8,13 +6,48 @@ import AccordionList from '../AccordionList';
 <style lang="scss">
 	.faq{
 		display: flex;
-		padding:  2rem 0;
-		gap: 4rem;
+		padding: 0;
+		gap: 0rem;
+		flex-direction: column;
+
+		@media screen and (min-width: 768px) {
+			padding: 0;
+			gap: 0rem;
+			&__left img{
+				height: 360px;
+			}
+		}
+
+		@media screen and (min-width: 992px) {
+			flex-direction: row;
+			gap: 4rem;
+			padding:  2rem 0;
+		}
+
+		&__left{
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-self: center;
+
+			img{
+				max-width: 100%;
+
+				@media screen and (min-width: 768px) {
+						height: 360px;
+				}
+
+				@media screen and (min-width: 992px) {
+						height: auto;
+				}
+			}
+		}
 
 		&__right{
 			display: flex;
 			align-items: center;
 			padding-top: 4rem;
+			flex: 1;
 		}
 
 		&__heading{
@@ -30,6 +63,14 @@ import AccordionList from '../AccordionList';
 
 		&__lead{
 			margin-top: .75rem;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
 		}
 
 		&__accordion{
@@ -44,7 +85,7 @@ import AccordionList from '../AccordionList';
 
 <section class="faq">
 	<div class="faq__left">
-		<Image src={FaqImage} alt="Faq illustration"/>
+		<img src="/imgs/faq-img.png" sizes="( max-width: 768px) 200px, 526px" alt="Faq illustration" formats={['webp']}/>
 	</div>
 	<div class="faq__right">
 		<div class="faq__right-content">
@@ -56,8 +97,8 @@ import AccordionList from '../AccordionList';
 						</div>
 					</h2>
 					<p class="faq__lead">
-						<span>Know more about my blog and me. Here are few common </span>
-						<span>questions with answers that might help you </span>
+						<span class="line">Know more about my blog and me. Here are few common </span>
+						<span class="line">questions with answers that might help you </span>
 					</p>
 			</div>
 			<div class="faq__accordion">

@@ -7,7 +7,7 @@ import Circle from '../../assets/svg/Circle.astro';
 import Star from '../../assets/svg/Star.astro';
 import CircleLine from '../../assets/svg/CircleLine.astro';
 
-const blogs: Blog[] = Astro.props.posts.map((blog) => ({
+const blogs: Blog[] = Astro.props.posts.map((blog: any) => ({
 	title: blog.frontmatter.title,
 	thumb: blog.frontmatter.thumb,
 	slug: blog.frontmatter.slug,
@@ -19,13 +19,23 @@ const blogs: Blog[] = Astro.props.posts.map((blog) => ({
 <style lang="scss">
 	.hero{
 		display:  flex;
+		flex-direction: column;
+
+		@media screen and (min-width: 992px) {
+			flex-direction: row;
+			gap: 1rem;
+		}
 
 		&__headline{
 			flex:  1;
 			height: calc(100vh - 4rem);
 			display: flex;
 			align-items: center;
-			padding-bottom: 5rem;
+			padding: 2rem 0 5rem;
+
+			@media screen and (min-width: 992px) {
+				padding-bottom: 0 0 5rem;
+			}
 		}
 
 		&__headline-content{
@@ -46,13 +56,45 @@ const blogs: Blog[] = Astro.props.posts.map((blog) => ({
 		}
 
 		&__heading{
-			font-size: 3.125rem;
+			font-size: 2.25rem;
 			font-family: var(--font-heading);
 			margin-bottom: .75rem;
+
+			@media screen and (min-width: 640px) {
+				font-size: 3.125rem;
+			}
+
+			@media screen and (min-width: 992px) {
+				font-size: 2.25rem;
+			}
+
+			@media screen and (min-width: 1120px) {
+				font-size: 2.75rem;
+			}
+
+			@media screen and (min-width: 1300px) {
+				font-size: 3.125rem;
+			}
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
 		}
 
 		&__lead{
 			font-weight: lighter;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 768px) {
+						display: block;
+				}
+			}
 		}
 
 		&__buttons{
@@ -69,6 +111,7 @@ const blogs: Blog[] = Astro.props.posts.map((blog) => ({
 			position: absolute;
 			top: -15%;
 			left: 20%;
+			z-index: -1;
 		}
 
 		.circle-2{
@@ -140,13 +183,13 @@ const blogs: Blog[] = Astro.props.posts.map((blog) => ({
 				Welcome to readn blog
 			</div>
 			<h1 class="hero__heading">
-				<div>
+				<div class="line">
 					Read what's in my 
 				</div>
-				<div>mind, <span class="text-bg">request</span> a topic</div>
-				<div>and collab with me</div>
+				<div class="line">mind, <span class="text-bg">request</span> a topic</div>
+				<div class="line">and collab with me</div>
 			</h1>
-			<p class="hero__lead"><span>Read or listen to my little opinions what is/was/will going</span> <span>on in the world. Let’s share our thoughts and memory to</span> grow a better us! </p>
+			<p class="hero__lead"><span class="line">Read or listen to my little opinions what is/was/will going</span> <span class="line">on in the world. Let’s share our thoughts and memory to</span> grow a better us! </p>
 			<div class="hero__buttons">
 				<a href="/blog">
 					<Button text="Show Blog"/>

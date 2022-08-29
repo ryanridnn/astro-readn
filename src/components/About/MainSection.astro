@@ -8,22 +8,31 @@ import Star from '../../assets/svg/Star.astro'
 
 <style lang="scss">
 	.main{
-		height:  calc(100vh - 4rem);
 		display: flex;
 		justify-content: center;
 		align-items:  center;
+
+		@media screen and (min-width: 768px) {
+			height:  calc(100vh - 4rem);
+		}
 
 		&__header{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			position: relative;
+			text-align: center;
 		}
 
 		&__stars{
+			display: none;
 			position: absolute;
 			right: -4rem;
 			top: 55%;
+
+			@media screen and (min-width: 768px) {
+				display: block;
+			}
 
 			.star-1,
 			.star-2{
@@ -35,19 +44,38 @@ import Star from '../../assets/svg/Star.astro'
 			}
 		}
 
-		&__profile-photo{
-			position: absolute;
-			top: -5rem;
-			left: -13rem;
-			z-index: -1;
+		&__image{
+			margin: .5rem 0 1.5rem;
+
+			@media screen and (min-width: 640px) {
+				margin: 2rem 0;
+			}
+
+			@media screen and (min-width: 992px) {
+				position: absolute;
+				;
+				z-index: -1;
+				top: -50%;
+			 	left: -20%;
+			 	margin: 0;
+			}
+
+			@media screen and (min-width: 1120px) {
+				top: -5rem;
+				left: -13rem;
+			}
 		}
 
 		&__heading{
-			font-size: 3.5rem;
 			font-weight: 400;
 			margin-bottom: .75rem;
 			position: relative;
 			align-self: center;
+			font-size: 2.5rem;
+
+			@media screen and (min-width: 768px) {
+				font-size: 3.5rem;
+			}
 
 			.circleline-1{
 				position: absolute;
@@ -58,7 +86,11 @@ import Star from '../../assets/svg/Star.astro'
 		}
 
 		&__lead{
-			margin-bottom: 1.75rem;
+			margin-bottom: 1.25rem;	
+
+			@media screen and (min-width: 768px) {
+				margin-bottom: 1.75rem;
+			}
 		}
 
 		&__links{
@@ -99,9 +131,6 @@ import Star from '../../assets/svg/Star.astro'
 <section class="main">
 	<div class="main__content">
 		<div class="main__header">
-			<div class="main__profile-photo">
-				<Image src={ProfileImage} alt="Photo of me" />
-			</div>
 			<div class="main__stars">
 				<div class="star-1">
 					<Star size="27px" color="gradient-dark-green" />
@@ -109,6 +138,9 @@ import Star from '../../assets/svg/Star.astro'
 				<div class="star-2">
 					<Star size="73px" color="gradient-green" />
 				</div>
+			</div>
+			<div class="main__image">
+				<Image src={ProfileImage} alt="Photo of me" />
 			</div>
 			<h1 class="main__heading">
 				Hi, I'm Ryan Ridwan

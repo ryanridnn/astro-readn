@@ -23,11 +23,13 @@ const defaultMeta: MetaProps = {
 const meta: MetaProps = { ...defaultMeta, ...(Astro.props.meta || {}) }
 ---
 
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{ meta.title }</title>
 		<meta name="title" content={meta.title} />
@@ -48,7 +50,6 @@ const meta: MetaProps = { ...defaultMeta, ...(Astro.props.meta || {}) }
 
 	        <meta name="keywords" content={meta.keywords} />
 	        <meta name="robots" content="index, follow" />
-	        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 	        <meta name="language" content="English" />
 	        <meta name="revisit-after" content="7 days" />
 	        <meta name="author" content="Ryan Ridwan" />
@@ -58,12 +59,12 @@ const meta: MetaProps = { ...defaultMeta, ...(Astro.props.meta || {}) }
 	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<div class="wrapper">
-			<Header />
+		<div class={`wrapper ${Astro.props.hideContainerOnSmall && 'wrapper--hideOnSmall'}`}>
+			<Header paddingOnSmall={Astro.props.hideContainerOnSmall}/>
 			<main>
 				<slot />
 			</main>
-			<Footer />
+			<Footer paddingOnSmall={Astro.props.hideContainerOnSmall}/>
 			{ Astro.props.attributions?.length > 0 && <Attributions attributions={Astro.props.attributions} />}
 		</div>
 	</body>

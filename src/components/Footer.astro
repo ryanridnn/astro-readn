@@ -3,7 +3,17 @@ import Logo from '../assets/svg/Logo.astro'
 
 ---
 
-<footer>
+<style lang="scss">
+	.paddingOnSmall{
+		padding:  0 1.5rem;
+
+		@media screen and (min-width: 640px) {
+			padding:  0;
+		}
+	}
+</style>
+
+<footer class={Astro.props.paddingOnSmall && 'paddingOnSmall'}>
 	<div class="nav">
 		<a href="/">
 			<Logo />

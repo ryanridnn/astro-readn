@@ -8,7 +8,11 @@ const posts = Astro.props.posts.sort((a, b) => new Date(b.frontmatter.publishedA
 
 <style lang="scss">
 	.blog{
-		padding: 4rem 0;
+		padding: 4rem 0 2rem;
+
+		@media screen and (min-width: 992px) {
+			padding: 4rem 0;
+		}
 
 		&__header{
 			display: flex;
@@ -24,11 +28,35 @@ const posts = Astro.props.posts.sort((a, b) => new Date(b.frontmatter.publishedA
 			align-self: center;	
 		}
 
+		&__lead{
+			padding: 0 2rem;
+
+			& > .line{
+				display: inline;
+
+				@media screen and (min-width: 480px) {
+					display: block;
+				}
+			}	
+
+			@media screen and (min-width: 480px) {
+					padding: 0;
+				}
+		}
+
 		&__list{
 			margin-top: 3.5rem;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(1, 1fr);
 			gap: 2rem;
+
+			@media screen and (min-width: 768px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media screen and (min-width: 992px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
 		}
 
 		.circle-1{
@@ -59,8 +87,8 @@ const posts = Astro.props.posts.sort((a, b) => new Date(b.frontmatter.publishedA
 			</div>
 		</h2>
 		<p class="blog__lead">
-			<span>Here's my thought about science, tech, history, </span>
-			<span>
+			<span class="line">Here's my thought about science, tech, history, </span>
+			<span class="line">
 				and other interesting topics
 			</span>
 		</p>
